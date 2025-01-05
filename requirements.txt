@@ -1,0 +1,9 @@
+os
+streamlit
+google-generativeai
+python-dotenv
+langchain
+langchain-community
+pandas
+datetime
+re
