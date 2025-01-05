@@ -6,5 +6,5 @@ python-dotenv
 langchain
 langchain-community
 pandas
-sqlite3
+pysqlite3
 
