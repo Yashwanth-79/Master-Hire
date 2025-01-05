@@ -1,5 +1,4 @@
-sentence-transformers
-chromadb
+
 streamlit
 google-generativeai
 python-dotenv
@@ -7,4 +6,7 @@ langchain
 langchain-community
 pandas
 pysqlite3
+sentence-transformers
+chromadb
+sqlite
 
