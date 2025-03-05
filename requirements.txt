@@ -8,6 +8,4 @@ pandas
 pysqlite3
 sentence-transformers
 chromadb
-sqlite
-
 pysqlite3-binary
