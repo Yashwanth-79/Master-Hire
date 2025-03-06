@@ -344,7 +344,7 @@ def render_tech_stack_ratings():
         with st.spinner("Generating assessment questions..."):
             st.session_state.questions = generate_questions(ratings)
         st.session_state.assessment_started = True
-        st.experimental_rerun()
+        st.rerun()
 
 def render_question(question_data):
     """Render assessment questions with improved UI"""
@@ -366,7 +366,7 @@ def render_question(question_data):
                     "is_correct": answer == correct
                 })
                 st.session_state.current_question += 1
-                st.experimental_rerun()
+                st.rerun()
     
     elif question_data.startswith("TEXT"):
         _, question, correct = question_data.split("|")
@@ -383,7 +383,7 @@ def render_question(question_data):
                     "is_correct": answer.lower().strip() == correct.lower().strip()
                 })
                 st.session_state.current_question += 1
-                st.experimental_rerun()
+                st.rerun()
 
 def chat_interface():
     """Enhanced chat interface with improved flow control"""
@@ -410,7 +410,7 @@ def chat_interface():
                     "role": "assistant", 
                     "content": "What's your full name?"
                 })
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error(message)
 
@@ -433,7 +433,7 @@ def chat_interface():
             if response:
                 st.session_state.messages.append({"role": "user", "content": user_input})
                 st.session_state.messages.append({"role": "assistant", "content": response})
-                st.experimental_rerun()
+                st.rerun()
 
 def admin_dashboard():
     """Enhanced admin dashboard with additional features"""
@@ -443,7 +443,7 @@ def admin_dashboard():
     st.sidebar.title("Admin Controls")
     if st.sidebar.button("Logout"):
         st.session_state.page = "login"
-        st.experimental_rerun()
+        st.rerun()
 
     # Main dashboard content
     if os.path.exists(CANDIDATE_DATA_FILE):
@@ -567,7 +567,7 @@ def main():
             if st.button("🧑‍💼 Candidate Login", use_container_width=True):
                 st.session_state.page = "chat"
                 st.session_state.messages = [{"role": "assistant", "content": "Welcome! I'm Master Hire, I am here to assist in you in hiring process Let's start with your application. "}]
-                st.experimental_rerun()
+                st.rerun()
             
             st.markdown("---")
             
@@ -582,7 +582,7 @@ def main():
                 elif ADMIN_CREDENTIALS.get(username) == password:
                     st.session_state.page = "admin"
                     st.session_state.login_attempts = 0
-                    st.experimental_rerun()
+                    st.rerun()
                 else:
                     st.session_state.login_attempts += 1
                     st.error("Invalid credentials")
@@ -601,7 +601,7 @@ def main():
             st.error(f"An error occurred: {str(e)}")
             if st.button("Return to Login"):
                 st.session_state.page = "login"
-                st.experimental_rerun()
+                st.rerun()
 
 if __name__ == "__main__":
     try:
