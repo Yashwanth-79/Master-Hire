@@ -9,3 +9,4 @@ faiss-cpu
 sentence-transformers
 chromadb
 pysqlite3-binary
+torch
