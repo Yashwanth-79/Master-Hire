@@ -30,7 +30,9 @@ MAX_FILE_SIZE = 200 * 1024 * 1024  # 200MB
 # Initialize LangChain and FAISS
 VECTOR_DB_DIR = "faiss_storage"
 os.makedirs(VECTOR_DB_DIR, exist_ok=True)
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+
+embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 # Create or load FAISS vector store
 if os.path.exists(os.path.join(VECTOR_DB_DIR, "index.faiss")):
     vector_db = FAISS.load_local(VECTOR_DB_DIR, embeddings)
