@@ -5,7 +5,7 @@ import os
 import streamlit as st
 import google.generativeai as genai
 from dotenv import load_dotenv
-from langchain.vectorstores import Chroma
+from langchain.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 import json
 import pandas as pd
@@ -27,11 +27,11 @@ ADMIN_CREDENTIALS = {"admin": "admin123"}  # In production, use secure password 
 ALLOWED_EXTENSIONS = {'.pdf', '.doc', '.docx'}
 MAX_FILE_SIZE = 200 * 1024 * 1024  # 200MB
 
-# Initialize LangChain and ChromaDB
-VECTOR_DB_DIR = "chromadb_storage"
+# Initialize LangChain and FAISS
+VECTOR_DB_DIR = "faiss_storage"
 os.makedirs(VECTOR_DB_DIR, exist_ok=True)
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-vector_db = Chroma(persist_directory=VECTOR_DB_DIR, embedding_function=embeddings)
+vector_db = FAISS(embedding_function=embeddings, index_name=VECTOR_DB_DIR)
 
 def validate_email(email):
     """Validate email format"""
