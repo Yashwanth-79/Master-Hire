@@ -10,3 +10,4 @@ sentence-transformers
 chromadb
 pysqlite3-binary
 torch
+langchain-google-genai
