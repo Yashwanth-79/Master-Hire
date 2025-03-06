@@ -31,7 +31,13 @@ MAX_FILE_SIZE = 200 * 1024 * 1024  # 200MB
 VECTOR_DB_DIR = "faiss_storage"
 os.makedirs(VECTOR_DB_DIR, exist_ok=True)
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-vector_db = FAISS(embedding_function=embeddings, index_name=VECTOR_DB_DIR)
+# Create or load FAISS vector store
+if os.path.exists(os.path.join(VECTOR_DB_DIR, "index.faiss")):
+    vector_db = FAISS.load_local(VECTOR_DB_DIR, embeddings)
+else:
+    # Create with placeholder text that will be updated with real data later
+    vector_db = FAISS.from_texts(["TalentScout initial index"], embeddings)
+    vector_db.save_local(VECTOR_DB_DIR)
 
 def validate_email(email):
     """Validate email format"""
