@@ -34,12 +34,7 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 # Create or load FAISS vector store
-if os.path.exists(os.path.join(VECTOR_DB_DIR, "index.faiss")):
-    vector_db = FAISS.load_local(VECTOR_DB_DIR, embeddings)
-else:
-    # Create with placeholder text that will be updated with real data later
-    vector_db = FAISS.from_texts(["TalentScout initial index"], embeddings)
-    vector_db.save_local(VECTOR_DB_DIR)
+
 
 def validate_email(email):
     """Validate email format"""
