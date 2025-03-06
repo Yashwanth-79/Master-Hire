@@ -5,7 +5,7 @@ python-dotenv
 langchain
 langchain-community
 pandas
-
+faiss-cpu
 sentence-transformers
 chromadb
 pysqlite3-binary
