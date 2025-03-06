@@ -319,7 +319,7 @@ def display_results():
             
             if st.button("Finish Assessment", type="primary"):
                 st.session_state.page = "login"
-                st.experimental_rerun()
+                st.rerun()
         else:
             st.error("There was an error saving your results. Please contact support.")
 
