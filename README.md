@@ -1,235 +1,182 @@
- # Master Hire - AI-Powered Technical Recruitment Assistant
- Demo link = https://youtu.be/Co6QF_f_ac8
- 
- Live : https://master-hire-talent-scout.streamlit.app/
- ## Project Overview
+# Master Hire - AI-Powered Technical Recruitment Assistant
 
-Master Hire is an intelligent recruitment assistant that streamlines the technical hiring process using AI. The system provides a chatbot-style interface powered by Google's Gemini-1.5-pro LLM and implements RAG (Retrieval-Augmented Generation) architecture for dynamic technical assessments.
+[![Demo Video](https://img.shields.io/badge/Demo-YouTube-red?style=flat&logo=youtube)](https://youtu.be/Co6QF_f_ac8)
+[![Live Application](https://img.shields.io/badge/Live-App-blue?style=flat&logo=streamlit)](https://master-hire-talent-scout.streamlit.app/)
 
- ### Key Features
+## 🚀 Project Overview
 
- - Automated resume parsing and candidate data collection
+**Master Hire** is an intelligent recruitment assistant that enhances the technical hiring process using AI. It features a chatbot-style interface powered by Google's Gemini-1.5-pro LLM and leverages **Retrieval-Augmented Generation (RAG)** to dynamically generate and assess technical interview questions.
 
- - Dynamic technical question generation based on candidate skills
+## ✨ Key Features
 
- - Real-time assessment with immediate feedback
+- ✅ **Automated Resume Parsing** - Extracts and structures candidate data.
+- 🎯 **Dynamic Technical Question Generation** - Tailored assessments based on skills.
+- ⚡ **Real-Time Assessment & Feedback** - Instant evaluation of candidate responses.
+- 📊 **Comprehensive Admin Dashboard** - Detailed recruitment analytics.
+- 🔒 **Secure Data Handling** - Robust file validation and storage.
+- 🗂 **Vector-Based Document Storage** - Efficient search with ChromaDB.
 
- - Comprehensive admin dashboard for recruitment analytics
+---
 
- - Secure file handling and data validation
+## 🛠 Installation & Setup
 
- - Vector-based document storage using ChromaDB
+### 📌 Prerequisites
+- Python 3.8+
+- Google API Key for Gemini-1.5-pro
+- Sufficient storage for ChromaDB vector database
 
- ## Installation
+### 📥 Installation Steps
 
- ### Prerequisites
-
- - Python 3.8 or higher
-
- - Google API key for Gemini-1.5-pro
-
- - Sufficient storage for ChromaDB vector database
-
- ### Setup Instructions
-
-1 . Clone the repository:
-
- ` ` `bash
-
+1️⃣ **Clone the repository:**
+```bash
 git clone https://github.com/YourUsername/Master-Hire.git
-
 cd Master-Hire
-
- ` ` `
-
-2 . Create and activate a virtual environment:
-
- ` ` `bash
-
-python -m venv venv
-
-source venv/bin/activate # On Windows: venv  Scripts  activate
-
- ` ` `
-
-3 . Install required packages:
-
- ` ` `bash
-
-pip install -r requirements.txt
-
- ` ` `
-
-4 . Create a  `.env ` file in the project root and add your Google API key:
-
- ` ` `
-
-GOOGLE _API _KEY=your _api _key _here
-
- ` ` `
-
-5 . Run the application:
-
- ` ` `bash
-
-streamlit run app.py
-
- ` ` `
-
- ## Usage Guide
-
- ### For Candidates
-
-1 . Click on "Candidate Login" from the welcome screen
-
-2 . Upload your resume (PDF, DOC, or DOCX format, max 200MB)
-
-3 . Fill in your personal and professional details
-
-4 . Rate your proficiency in various technical skills
-
-5 . Complete the generated technical assessment
-
-6 . Review your results and feedback
-
- ### For Administrators
-
-1 . Access the admin dashboard using provided credentials
-
-2 . View comprehensive candidate analytics
-
-3 . Export candidate data in CSV or JSON format
-
-4 . Track assessment metrics and skill distribution
-
- ## Technical Details
-
- ### Core Technologies
-
- -  * *Frontend * *: Streamlit
-
- -  * *Backend * *: Python
-
- -  * *AI Model * *: Google Gemini-1.5-pro
-
-- **Vector Store**: ChromaDB
-
-- **Embeddings**: HuggingFace's all-MiniLM-L6-v2
-
-### Architecture Components
-
-1. **Input Processing**
-
-- File validation for resumes
-
-- Data validation for user inputs
-
-- Secure storage of candidate information
-
-2. **Question Generation**
-
-- Dynamic prompting based on skill levels
-
-- Mix of multiple-choice and text-based questions
-
-- Automated scoring and feedback
-
-3. **Vector Database**
-
-- Document storage and retrieval
-
-- Efficient similarity search
-
-- Persistent storage for scalability
-
-## Prompt Design
-
-### Information Gathering
-
-The system uses a stage-based approach for gathering information:
-
-```python
-
-stages = {
-
-"upload _resume": {...},
-
-"name": {...},
-
-"email": {...},
-
- # Additional stages
-
-}
-
 ```
 
-### Technical Question Generation
+2️⃣ **Create and activate a virtual environment:**
+```bash
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+```
 
-Questions are generated using carefully crafted prompts:
+3️⃣ **Install required dependencies:**
+```bash
+pip install -r requirements.txt
+```
 
+4️⃣ **Set up environment variables:**
+Create a `.env` file in the project root and add your API key:
+```ini
+GOOGLE_API_KEY=your_api_key_here
+```
+
+5️⃣ **Run the application:**
+```bash
+streamlit run app.py
+```
+
+---
+
+## 📖 Usage Guide
+
+### 🎓 For Candidates
+1. Click on **"Candidate Login"** from the welcome screen.
+2. Upload your resume (PDF, DOC, DOCX | max 200MB).
+3. Provide personal & professional details.
+4. Rate proficiency in technical skills.
+5. Complete the AI-generated technical assessment.
+6. Review results and feedback instantly.
+
+### 🏢 For Administrators
+1. Login to the **Admin Dashboard** with credentials.
+2. View detailed **candidate analytics**.
+3. Export candidate data in **CSV/JSON**.
+4. Monitor **assessment metrics & skill distribution**.
+
+---
+
+## 🏗 Technical Details
+
+### 🔹 Core Technologies
+- **Frontend**: Streamlit
+- **Backend**: Python
+- **AI Model**: Google Gemini-1.5-pro
+- **Vector Store**: ChromaDB
+- **Embeddings**: HuggingFace's `all-MiniLM-L6-v2`
+
+### 🛠 System Architecture
+
+#### 1️⃣ **Input Processing**
+- Resume validation & structured parsing
+- User input verification & secure storage
+
+#### 2️⃣ **Question Generation**
+- AI-generated questions based on user skills
+- Mix of **MCQs** and **text-based** questions
+- Automated **scoring & feedback**
+
+#### 3️⃣ **Vector Database & Search**
+- Efficient document retrieval via **ChromaDB**
+- Scalable **similarity search**
+- Persistent **storage for future assessments**
+
+---
+
+## 🔥 Prompt Design
+
+### 📥 Information Gathering
+The system collects user data in a staged approach:
 ```python
+stages = {
+    "upload_resume": {...},
+    "name": {...},
+    "email": {...},
+    # Additional stages
+}
+```
 
+### 🧠 Dynamic Question Generation
+The system generates relevant questions based on skill level:
+```python
 prompt = f"""Generate 2 multiple choice questions and 1 text-based question for {tech} at proficiency level {level}/10.
 
 Format for MCQs:
-
 MCQ||||||
 
 Format for text questions:
-
-TEXT||"""
+TEXT||
+"""
 ```
 
+---
 
-## Challenges & Solutions
+## 🔎 Challenges & Solutions
 
-### 1. Dynamic Question Generation
+### 1️⃣ **Dynamic Question Generation**
+**❌ Challenge:** Ensuring consistent quality & relevance of AI-generated questions.
 
-**Challenge**: Ensuring consistent quality and relevance of generated questions.
+**✅ Solution:** Implemented structured prompts with validation checks to improve accuracy.
 
-**Solution**: Implemented structured prompts with specific formats and validation checks.
+### 2️⃣ **Scalability**
+**❌ Challenge:** Managing large resume files and multiple candidates.
 
-### 2. Scalability
+**✅ Solution:** ChromaDB for optimized vector storage & enforced file size limits.
 
-**Challenge**: Handling multiple candidates and large resume files efficiently.
+### 3️⃣ **Assessment Accuracy**
+**❌ Challenge:** Fair evaluation of text-based answers.
 
-**Solution**: Utilized ChromaDB for vector storage and implemented proper file size limits.
+**✅ Solution:** Developed robust **scoring system** with **answer normalization & pattern matching**.
 
-### 3. Assessment Accuracy
+### 4️⃣ **Security & Data Protection**
+**❌ Challenge:** Preventing unauthorized access to sensitive candidate data.
 
-**Challenge**: Fair evaluation of text-based answers.
-
-**Solution**: Developed a robust scoring system with answer normalization and pattern matching.
-
-### 4. Security
-
-**Challenge**: Protecting sensitive candidate data and preventing unauthorized access.
-
-**Solution**:
-
-- Implemented secure file validation
-
-- Added session management
-
+**✅ Solution:**
+- Secure file validation mechanisms
+- Session-based authentication
 - Rate limiting for login attempts
-
 - Secure credential storage
 
-## Future Enhancements
+---
 
-1. Automated resume parsing using NLP
+## 🚀 Future Enhancements
 
-2. Soft skills and personality profiling
+🔹 **Automated Resume Parsing using NLP**
+🔹 **Soft Skills & Personality Profiling**
+🔹 **Multi-Language Support**
+🔹 **AI-powered Recruiter Dashboard with Insights**
 
-3. Multi-language support
+---
 
-4. Enhanced recruiter dashboard with AI-powered insights
+## 🤝 Contributing
 
-## Contributing
+Contributions are welcome! To contribute:
+1. Fork the repository.
+2. Create a new branch.
+3. Make necessary changes and push.
+4. Submit a Pull Request (PR).
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+---
 
-## License
+## 📜 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the **MIT License** - see the `LICENSE` file for details.
